@@ -4,6 +4,8 @@ A local AI assistant that reads recipes from Markdown files and adds the ingredi
 
 Access to Bring! is provided by the open-source [`bring-mcp`](https://github.com/florianwittkamp/bring-mcp) MCP server by Florian Wittkamp.
 
+> **Built with IBM Bob:** this app and its agent were built with [IBM Bob](https://bob.ibm.com/) in minutes.
+
 ## Architecture
 
 ```mermaid
