@@ -2,6 +2,8 @@
 
 A local AI assistant that reads recipes from Markdown files and adds the ingredients straight to your [Bring!](https://www.getbring.com/) shopping list. You chat with the agent in German or English. Everything except Bring! itself runs on your machine: the LLM runs locally via Ollama, and no API keys are needed.
 
+Access to Bring! is provided by the open-source [`bring-mcp`](https://github.com/florianwittkamp/bring-mcp) MCP server by Florian Wittkamp.
+
 ## Architecture
 
 ```mermaid
@@ -200,3 +202,8 @@ bring-app/
 - **First request is slow**: the first request starts `bring-mcp` through `npx` and logs in to Bring!, and Ollama loads the model.
 - **The LLM picks the wrong tool or none**: a 4B model is not perfect. The `🧠` line in the backend log shows exactly which tool and arguments it chose. Rephrase, or tune the prompt in `buildSystemPrompt()`.
 - **`Bring! list "..." not found`**: set `BRING_LIST_NAME` in `.env` to the exact list name. The error message lists your available lists.
+
+## Acknowledgements
+
+- [`bring-mcp`](https://github.com/florianwittkamp/bring-mcp) by [Florian Wittkamp](https://github.com/florianwittkamp): the MCP server this app uses to talk to Bring! (started on demand via `npx bring-mcp@latest`). Check its repository for its own license and documentation.
+- [Ollama](https://ollama.com/) for running the LLM locally, and [Bring!](https://www.getbring.com/) for the shopping list service. This project is not affiliated with or endorsed by Bring!.
